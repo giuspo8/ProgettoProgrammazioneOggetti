@@ -2,10 +2,10 @@ import java.util.ArrayList;
 
 public class CulturalPractice {
 
-	String title;
-	int number;
-	ArrayList <Institution> partners;
-	Institution proponent;
+	private String title;
+	private int number;
+	private ArrayList <Institution> partners;
+	private Institution proponent;
 	
 	public CulturalPractice(String title, int number, ArrayList<Institution> partners, Institution proponent) {
 		super();

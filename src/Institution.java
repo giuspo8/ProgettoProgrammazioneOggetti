@@ -1,12 +1,11 @@
 
 public abstract class Institution {
 	
-	String Name;
-	
-	
+	protected String name;
+
 	public Institution(String name) {
 		super();
-		Name = name;
+		this.name = name;
 	}
 	public abstract String getName();
 	public abstract void setName(String name);

@@ -1,8 +1,8 @@
 
 public class Town {
 	
-	String name;
-	String province;
+	private String name;
+	private String province;
 	
 
 	public Town(String name, String province) {

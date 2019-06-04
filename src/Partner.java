@@ -1,10 +1,16 @@
 
 public class Partner extends Institution {
 
+	
+	public Partner(String name) {
+		super(name);
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public String getName() {
 		// TODO Auto-generated method stub
-		return null;
+		return super.name;
 	}
 
 	@Override

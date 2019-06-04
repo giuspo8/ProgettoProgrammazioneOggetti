@@ -1,8 +1,8 @@
 
 public class Proponent extends Institution {
 
-	String site;
-	Town town;
+	private String site;
+	private Town town;
 	
 	public Proponent(String name, String site, Town town) {
 		super(name);
@@ -29,7 +29,7 @@ public class Proponent extends Institution {
 	@Override
 	public String getName() {
 		// TODO Auto-generated method stub
-		return null;
+		return super.name;
 	}
 
 	@Override
