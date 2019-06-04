@@ -31,19 +31,23 @@ public class TestProject {
 				if (count !=1) {
 				ArrayList<Institution> partnersThisPractice = new ArrayList<Institution>();
 				String[] a = file.nextLine().split(DELIMITER,FIELDNUMBERS);
-				if (a.length < 7)
+				if (a.length < FIELDNUMBERS)
 				{
 					System.out.println("C'è un errore alla riga "+ count);
 				}
 				else
 				{
-				String[] b = a[6].split(regex);
+				Town t=new Town(a[5],a[4]);
+				towns.add(t);
+				Proponent p=new Proponent(a[2],a[3],t);
+				proponents.add(p);
+				String[] b = a[FIELDNUMBERS-1].split(regex);
 				for (int i=0; i<b.length; i++)
 				{
 					partners.add(new Partner(b[i]));
 					partnersThisPractice.add(new Partner(b[i]));
 				}
-				practices.add(new CulturalPractice(a[0],Integer.parseInt(a[1]),partnersThisPractice,new Proponent(a[2],a[3],new Town(a[5],a[4]))));
+				practices.add(new CulturalPractice(a[0],Integer.parseInt(a[1]),partnersThisPractice,p));
 				}
 				}
 				else
@@ -63,6 +67,9 @@ public class TestProject {
 			}
 
 		}
+		Filter partnersTotal=new DatasetPartners(partners);
+		Filter proponentsTotal=new DatasetProponents(proponents);
+		Filter townsTotal=new DatasetTown(towns);
 		}
 		catch (FileNotFoundException e)
 		{
@@ -81,7 +88,17 @@ public class TestProject {
 		
 		for (Institution p:partners) 
 		{
-			System.out.println(p);
+			//System.out.println(p);
+		}
+		
+		for (Institution p:proponents) 
+		{
+			//System.out.println(p);
+		}
+		
+		for (Town t:towns) 
+		{
+			//System.out.println(t);
 		}
 	}
 
