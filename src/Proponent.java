@@ -38,4 +38,10 @@ public class Proponent extends Institution {
 
 	}
 
+	@Override
+	public String toString() {
+		return "Proponent [site=" + site + ", town=" + town + ", name=" + name + "]";
+	}
+	
+
 }

@@ -19,4 +19,11 @@ public class Partner extends Institution {
 
 	}
 
+	@Override
+	public String toString() {
+		return "Partner [name=" + name + "]";
+	}
+	
+	
+
 }

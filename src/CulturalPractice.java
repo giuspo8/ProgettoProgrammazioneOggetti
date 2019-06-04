@@ -60,4 +60,14 @@ public class CulturalPractice {
 	public void setProponent(Institution proponent) {
 		this.proponent = proponent;
 	}
+
+
+	@Override
+	public String toString() {
+		return "CulturalPractice [title=" + title + ", number=" + number + ", partners=" + partners + ", proponent="
+				+ proponent + "]";
+	}
+	
+	
+	
 }

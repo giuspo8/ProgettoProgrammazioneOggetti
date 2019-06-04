@@ -3,7 +3,6 @@ public class Town {
 	
 	private String name;
 	private String province;
-	
 
 	public Town(String name, String province) {
 		this.name = name;
@@ -21,6 +20,11 @@ public class Town {
 	}
 	public void setProvince(String province) {
 		this.province = province;
+	}
+
+	@Override
+	public String toString() {
+		return "Town [name=" + name + ", province=" + province + "]";
 	}
 	
 	
