@@ -19,6 +19,10 @@ public class DatasetCulturalPractice implements Filter {
 	public static void setPractices(ArrayList<CulturalPractice> practices) {
 		DatasetCulturalPractice.practices = practices;
 	}
+	
+	public static int prova() {
+		return 1;
+	}
 
 
 	@Override

@@ -1,11 +1,18 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+
+
+@SpringBootApplication
 public class TestProject {
 
 	static String filename = "buonepraticheculturaliregionelazio.csv";
 
 	public static void main(String[] args) {
+		//SpringApplication.run(TestProject.class, args);
 		Parser p= new Parser(filename,new Scanner(filename));
 		p.openStream();
 		ArrayList<CulturalPractice>practices=p.parseCulturalPractice(p.getFile());
