@@ -4,39 +4,43 @@ import java.util.Scanner;
 public class TestProject {
 
 	static String filename = "buonepraticheculturaliregionelazio.csv";
-	
-	public static void main(String[] args) {
-Parser p= new Parser(filename,new Scanner(filename));
-p.openStream();
-ArrayList<CulturalPractice>cp=p.parseCulturalPractice(p.getFile());
-p.openStream();
-ArrayList<Institution> partners=p.parsePartners(p.getFile());
-p.openStream();
-ArrayList<Institution> proponents=p.parseProponents(p.getFile());
-p.openStream();
-ArrayList<Town> towns=p.parseTowns(p.getFile());
 
-		
-		for (CulturalPractice c:cp) 
+	public static void main(String[] args) {
+		Parser p= new Parser(filename,new Scanner(filename));
+		p.openStream();
+		ArrayList<CulturalPractice>practices=p.parseCulturalPractice(p.getFile());
+		p.openStream();
+		ArrayList<Institution> partners=p.parsePartners(p.getFile());
+		p.openStream();
+		ArrayList<Institution> proponents=p.parseProponents(p.getFile());
+		p.openStream();
+		ArrayList<Town> towns=p.parseTowns(p.getFile());
+		DatasetCulturalPractice.setPractices(practices);
+		DatasetPartners.setPartners(partners);
+		DatasetProponents.setProponents(proponents);
+		DatasetTown.setTowns(towns);
+
+		for (CulturalPractice c:DatasetCulturalPractice.getPractices()) 
 		{
 			System.out.println(c);
 		}
-		
-		for (Institution pr:partners) 
+
+		for (Institution pr:DatasetPartners.getPartners()) 
 		{
 			System.out.println(pr);
 		}
-		
-		for (Institution prop:proponents) 
+
+		for (Institution prop:DatasetProponents.getProponents()) 
 		{
 			System.out.println(prop);
 		}
-		
-		for (Town t:towns) 
+
+		for (Town t:DatasetTown.getTowns()) 
 		{
 			System.out.println(t);
 		}
-		
+
 	}
 
 }
+

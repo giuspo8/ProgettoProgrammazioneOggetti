@@ -2,21 +2,22 @@ import java.util.ArrayList;
 
 public class DatasetProponents implements Filter {
 
-	private ArrayList<Institution> proponents;
+	private static ArrayList<Institution> proponents;
 	
-	public DatasetProponents(ArrayList<Institution> proponents) {
-		super();
-		this.proponents = proponents;
+	
+	@Override
+	public String toString() {
+		return "DatasetProponents []";
 	}
 
-	
-	public ArrayList<Institution> getProponents() {
+
+	public static ArrayList<Institution> getProponents() {
 		return proponents;
 	}
 
 
-	public void setProponents(ArrayList<Institution> proponents) {
-		this.proponents = proponents;
+	public static void setProponents(ArrayList<Institution> proponents) {
+		DatasetProponents.proponents = proponents;
 	}
 
 

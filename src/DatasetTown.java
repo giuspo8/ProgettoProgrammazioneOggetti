@@ -2,12 +2,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class DatasetTown implements Filter {
-	private ArrayList<Town> towns;
+	private static ArrayList<Town> towns;
 
-	
-	public DatasetTown(ArrayList<Town> towns) {
-		super();
-		this.towns = towns;
+	@Override
+	public String toString() {
+		return "DatasetTown []";
 	}
 
 	@Override
@@ -16,12 +15,12 @@ public class DatasetTown implements Filter {
 		return null;
 	}
 
-	public ArrayList<Town> getTowns() {
+	public static ArrayList<Town> getTowns() {
 		return towns;
 	}
 
-	public void setTowns(ArrayList<Town> towns) {
-		this.towns = towns;
+	public static void setTowns(ArrayList<Town> towns) {
+		DatasetTown.towns = towns;
 	} 
 
 

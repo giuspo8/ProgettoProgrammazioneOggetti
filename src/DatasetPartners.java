@@ -2,12 +2,12 @@ import java.util.ArrayList;
 
 public class DatasetPartners implements Filter {
 
-	private ArrayList<Institution> partners;
+	private static ArrayList<Institution> partners;
 	
-	
-	public DatasetPartners(ArrayList<Institution> partners) {
-		super();
-		this.partners = partners;
+
+	@Override
+	public String toString() {
+		return "DatasetPartners []";
 	}
 
 	@Override
@@ -16,12 +16,12 @@ public class DatasetPartners implements Filter {
 		return null;
 	}
 
-	public ArrayList<Institution> getPartners() {
+	public static ArrayList<Institution> getPartners() {
 		return partners;
 	}
 
-	public void setPartners(ArrayList<Institution> partners) {
-		this.partners = partners;
+	public static void setPartners(ArrayList<Institution> partners) {
+		DatasetPartners.partners = partners;
 	}
 
 }
