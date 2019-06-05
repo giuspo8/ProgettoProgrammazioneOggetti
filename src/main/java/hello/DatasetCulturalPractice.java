@@ -1,3 +1,4 @@
+package hello;
 import java.util.ArrayList;
 
 public class DatasetCulturalPractice implements Filter {
@@ -20,10 +21,6 @@ public class DatasetCulturalPractice implements Filter {
 		DatasetCulturalPractice.practices = practices;
 	}
 	
-	public static int prova() {
-		return 1;
-	}
-
 
 	@Override
 	public String toString() {

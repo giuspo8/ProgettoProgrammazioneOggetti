@@ -1,3 +1,4 @@
+package hello;
 
 public abstract class Institution {
 	

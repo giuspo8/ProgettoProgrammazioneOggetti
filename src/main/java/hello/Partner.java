@@ -1,3 +1,4 @@
+package hello;
 
 public class Partner extends Institution {
 

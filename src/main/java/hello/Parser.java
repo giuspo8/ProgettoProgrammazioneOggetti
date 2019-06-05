@@ -1,3 +1,4 @@
+package hello;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -65,7 +66,7 @@ public class Parser {
 					String[] a = file.nextLine().split(DELIMITER,FIELDNUMBERS);
 					if (a.length < FIELDNUMBERS)
 					{
-						System.out.println("C'è un errore alla riga "+ count);
+						System.out.println("C'ï¿½ un errore alla riga "+ count);
 					}
 					else
 					{
@@ -95,7 +96,7 @@ public class Parser {
 				if (file.hasNextLine()) {
 					file.nextLine();
 				}
-				System.out.println("C'è un errore di conversione da stringa a numero alla riga "+ count);
+				System.out.println("C'ï¿½ un errore di conversione da stringa a numero alla riga "+ count);
 			}
 
 		}
@@ -118,7 +119,7 @@ public class Parser {
 					String[] a = file.nextLine().split(DELIMITER,FIELDNUMBERS);
 					if (a.length < FIELDNUMBERS)
 					{
-						//System.out.println("C'è un errore alla riga "+ count);
+						//System.out.println("C'ï¿½ un errore alla riga "+ count);
 					}
 					else
 					{
@@ -139,7 +140,7 @@ public class Parser {
 				if (file.hasNextLine()) {
 					file.nextLine();
 				}
-				//System.out.println("C'è un errore di conversione da stringa a numero alla riga "+ count);
+				//System.out.println("C'ï¿½ un errore di conversione da stringa a numero alla riga "+ count);
 			}
 
 		}
@@ -159,7 +160,7 @@ public class Parser {
 					String[] a = file.nextLine().split(DELIMITER,FIELDNUMBERS);
 					if (a.length < FIELDNUMBERS)
 					{
-						//System.out.println("C'è un errore alla riga "+ count);
+						//System.out.println("C'ï¿½ un errore alla riga "+ count);
 					}
 					else
 					{
@@ -184,7 +185,7 @@ public class Parser {
 				if (file.hasNextLine()) {
 					file.nextLine();
 				}
-				//System.out.println("C'è un errore di conversione da stringa a numero alla riga "+ count);
+				//System.out.println("C'ï¿½ un errore di conversione da stringa a numero alla riga "+ count);
 			}
 		}
 
@@ -203,7 +204,7 @@ public class Parser {
 					String[] a = file.nextLine().split(DELIMITER,FIELDNUMBERS);
 					if (a.length < FIELDNUMBERS)
 					{
-						//System.out.println("C'è un errore alla riga "+ count);
+						//System.out.println("C'ï¿½ un errore alla riga "+ count);
 					}
 					else
 					{
@@ -225,7 +226,7 @@ public class Parser {
 				if (file.hasNextLine()) {
 					file.nextLine();
 				}
-				//System.out.println("C'è un errore di conversione da stringa a numero alla riga "+ count);
+				//System.out.println("C'ï¿½ un errore di conversione da stringa a numero alla riga "+ count);
 			}
 
 		}
