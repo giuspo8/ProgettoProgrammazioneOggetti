@@ -64,4 +64,39 @@ public class Controller {
 		DatasetCulturalPractice c = new DatasetCulturalPractice();
 		return c.MostFrequently(name);
 	}
+	
+	@RequestMapping(value = "/data/errors", method = RequestMethod.GET)
+	public Object ShowErrors()
+	{
+		DatasetCulturalPractice c = new DatasetCulturalPractice();
+		return c.getErrors();
+	}
+	
+	@RequestMapping(value = "/count", method = RequestMethod.GET)
+	public Object Count()
+	{
+		DatasetCulturalPractice c = new DatasetCulturalPractice();
+		return "il numero di elementi con formattazione valida nel DataSet è pari a "+c.getPractices().size();
+	}
+	
+	@RequestMapping(value = "/partners", method = RequestMethod.GET)
+	public Object partners()
+	{
+		DatasetCulturalPractice c = new DatasetCulturalPractice();
+		return c.getPartners();
+	}
+	
+	@RequestMapping(value = "/towns", method = RequestMethod.GET)
+	public Object towns()
+	{
+		DatasetCulturalPractice c = new DatasetCulturalPractice();
+		return c.getTowns();
+	}
+	
+	@RequestMapping(value = "/proponents", method = RequestMethod.GET)
+	public Object proponents()
+	{
+		DatasetCulturalPractice c = new DatasetCulturalPractice();
+		return c.getProponents();
+	}
 }

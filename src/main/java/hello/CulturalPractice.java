@@ -1,18 +1,19 @@
 package hello;
 import java.util.ArrayList;
+import java.util.List;
 
 public class CulturalPractice {
 
 	private String title;
 	private int number;
-	private ArrayList <Institution> partners;
+	private List<Institution> partners;
 	private Proponent proponent;
 	
-	public CulturalPractice(String title, int number, ArrayList<Institution> partners, Proponent proponent) {
+	public CulturalPractice(String title, int number, List<Institution> partnersThisPractice, Proponent proponent) {
 		super();
 		this.title = title;
 		this.number = number;
-		this.partners = partners;
+		this.partners = partnersThisPractice;
 		this.proponent = proponent;
 	}
 
@@ -43,7 +44,7 @@ public class CulturalPractice {
 	}
 
 
-	public ArrayList<Institution> getPartners() {
+	public List<Institution> getPartners() {
 		return partners;
 	}
 

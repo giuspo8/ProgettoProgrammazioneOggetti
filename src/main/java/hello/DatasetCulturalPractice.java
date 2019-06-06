@@ -1,8 +1,10 @@
 package hello;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class DatasetCulturalPractice implements Filter {
 	private static ArrayList<CulturalPractice> practices;
@@ -50,7 +52,7 @@ public class DatasetCulturalPractice implements Filter {
 		break;
 		default: return "Attributo non presente";
 		}
-	
+
 		for (String s:map.keySet())
 		{
 			if (map.get(s)>max) {
@@ -130,7 +132,7 @@ public class DatasetCulturalPractice implements Filter {
 
 	public Object Find (String type, int number) {
 		List<CulturalPractice> listCulturalPractice = new ArrayList<CulturalPractice>();
-		if (type.equals(">")||type.equals("greater"))
+		if (type.equals(">=")||type.equals("greater"))
 		{
 			for (CulturalPractice c: practices)
 			{
@@ -141,7 +143,7 @@ public class DatasetCulturalPractice implements Filter {
 			}
 			return listCulturalPractice;
 		}
-		else if (type.equals("<")||type.equals("smaller"))
+		else if (type.equals("<=")||type.equals("smaller"))
 		{
 			for (CulturalPractice c: practices)
 			{
@@ -246,19 +248,19 @@ public class DatasetCulturalPractice implements Filter {
 		}
 		return CountElements(elementsList);
 	}
-	
+
 	public Map<String,Integer> prepareCountProponent()
 	{
 		List<String> elementsList=new ArrayList<String>();
 		for (CulturalPractice c:practices) 
 		{
-				elementsList.add(c.getProponent().getName());
+			elementsList.add(c.getProponent().getName());
 		}
 		return CountElements(elementsList);
 	}
-	
 
-	private Map<String, Integer> CountElements(List<String> elementsList) {
+
+	public Map<String, Integer> CountElements(List<String> elementsList) {
 
 		Map<String,Integer> count=new HashMap<String,Integer>();
 		for (String s:elementsList)
@@ -273,8 +275,42 @@ public class DatasetCulturalPractice implements Filter {
 		return count;
 	}
 
+	public Set<Institution> getPartners()
+	{
+		Set<Institution> partners=new HashSet<Institution>();
 
+		for (CulturalPractice c:practices) 
+		{
+			for (Institution i:c.getPartners()) {
+				partners.add(i);
+			}
+		}
+		return partners;
+	}
 
+	public HashSet<Town> getTowns()
+	{
+		HashSet<Town> towns=new HashSet<Town>();
+
+		for (CulturalPractice c:practices) 
+		{
+			towns.add(c.getProponent().getTown());
+		}
+		return towns;
+	}
+	
+	public Set<Institution> getProponents()
+	{
+		Set<Institution> proponents=new HashSet<Institution>();
+
+		for (CulturalPractice c:practices) 
+		{
+
+				proponents.add(c.getProponent());
+
+		}
+		return proponents;
+	}
 
 
 

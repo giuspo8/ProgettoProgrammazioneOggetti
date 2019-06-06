@@ -23,9 +23,6 @@ public class Application {
 		p.openStream();
 		ArrayList<Town> towns=p.parseTowns(p.getFile());
 		DatasetCulturalPractice.setPractices(practices);
-		DatasetPartners.setPartners(partners);
-		DatasetProponents.setProponents(proponents);
-		DatasetTown.setTowns(towns);
 
 		for (CulturalPractice c:DatasetCulturalPractice.getPractices()) 
 		{

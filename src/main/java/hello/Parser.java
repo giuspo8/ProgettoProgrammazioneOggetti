@@ -17,7 +17,7 @@ public class Parser {
 		super();
 		this.filename = filename;
 	}
-	
+
 
 	public Parser(String filename, Scanner file) {
 		super();
@@ -57,40 +57,39 @@ public class Parser {
 	public ArrayList<CulturalPractice> parseCulturalPractice(Scanner file) {
 
 		ArrayList<CulturalPractice> practices = new ArrayList<CulturalPractice>();
-		List<Error> errors = new ArrayList<Error>();
+		List<Error>errors=new ArrayList<Error>();	
 		int count=0;
 		while (file.hasNext())
 		{
 			try {
 				count++;
 				if (count !=1) {
-					ArrayList<Institution> partnersThisPractice = new ArrayList<Institution>();
+					List<Institution> partnersThisPractice = new ArrayList<Institution>();
 					String[] a = file.nextLine().split(DELIMITER,FIELDNUMBERS);
 					if (a.length < FIELDNUMBERS)
 					{
-						errors.add(new Error("Errore nel numero di attributi",count));
+						errors.add(new Error("Errore sul numero di attributi",count));
 					}
 					else
 					{
 						if ((!a[3].contains("www")&&!a[3].contains("http"))||a[4].contains("www"))
 						{
 							errors.add(new Error("Errore di formattazione campo sito web",count));
-
 						}
 						else
 						{
-						Town t=new Town(a[5],a[4]);
-						//towns.add(t);
-						Proponent p=new Proponent(a[2],a[3],new Town(a[5],a[4]));
-						//proponents.add(p);
-						String[] b = a[FIELDNUMBERS-1].split(regex);
-						for (int i=0; i<b.length; i++)
-						{
-							//partners.add(new Partner(b[i]));
-							partnersThisPractice.add(new Partner(b[i]));
+							Town t=new Town(a[5],a[4]);
+							//towns.add(t);
+							Proponent p=new Proponent(a[2],a[3],new Town(a[5],a[4]));
+							//proponents.add(p);
+							String[] b = a[FIELDNUMBERS-1].split(regex);
+							for (int i=0; i<b.length; i++)
+							{
+								//partners.add(new Partner(b[i]));
+								partnersThisPractice.add(new Partner(b[i]));
+							}
+							practices.add(new CulturalPractice(a[0],Integer.parseInt(a[1]),partnersThisPractice,new Proponent(a[2],a[3],new Town(a[5],a[4]))));
 						}
-						practices.add(new CulturalPractice(a[0],Integer.parseInt(a[1]),partnersThisPractice,new Proponent(a[2],a[3],new Town(a[5],a[4]))));
-					}
 					}
 				}
 				else
@@ -103,7 +102,8 @@ public class Parser {
 			}
 			catch (NumberFormatException e)
 			{
-				if (file.hasNextLine()) {
+				if (file.hasNextLine()) 
+				{
 					file.nextLine();
 				}
 				errors.add(new Error("Errore nel parsing",count));
