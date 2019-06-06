@@ -50,4 +50,18 @@ public class Controller {
 		Institution partner=new Partner(name);
 		return c.Find(partner);
 	}
+	
+	@RequestMapping(value = "/countUnique", method = RequestMethod.GET)
+	public Object FindUniqueElement(@RequestParam("attribute") String name)
+	{
+		DatasetCulturalPractice c = new DatasetCulturalPractice();
+		return c.FindUnique(name);
+	}
+	
+	@RequestMapping(value = "/mostFrequently", method = RequestMethod.GET)
+	public Object MostFrequently(@RequestParam("attribute") String name)
+	{
+		DatasetCulturalPractice c = new DatasetCulturalPractice();
+		return c.MostFrequently(name);
+	}
 }

@@ -23,7 +23,7 @@ public class DatasetProponents implements Filter {
 
 
 	@Override
-	public String MostFrequently() {
+	public String MostFrequently(String choice) {
 		// TODO Auto-generated method stub
 		return null;
 	}
