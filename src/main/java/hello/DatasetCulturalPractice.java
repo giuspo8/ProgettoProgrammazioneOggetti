@@ -5,7 +5,7 @@ import java.util.List;
 public class DatasetCulturalPractice implements Filter {
 	private static ArrayList<CulturalPractice> practices;
 
-	
+
 	@Override
 	public String MostFrequently() {
 		// TODO Auto-generated method stub
@@ -21,7 +21,7 @@ public class DatasetCulturalPractice implements Filter {
 	public static void setPractices(ArrayList<CulturalPractice> practices) {
 		DatasetCulturalPractice.practices = practices;
 	}
-	
+
 
 	@Override
 	public String toString() {
@@ -34,14 +34,31 @@ public class DatasetCulturalPractice implements Filter {
 		for (CulturalPractice c: practices)
 		{
 			if (value.equals(c.getProponent().getTown().getName()))
-					{
-						listCulturalPractice.add(c);
-					}
+			{
+				listCulturalPractice.add(c);
+			}
 		}
 		return listCulturalPractice;
 	}
-	
-	
-	
+
+
+	public Object Find(String... params) {
+		int total = params.length;
+		List<CulturalPractice> listCulturalPractice = new ArrayList<CulturalPractice>();
+		for (CulturalPractice c: practices)
+		{
+			
+			for (int i=0;i<total;i++)
+			{
+				if (params[i].equals(c.getProponent().getTown().getName()))
+				{
+					listCulturalPractice.add(c);
+				}
+			}
+			
+		}
+		return listCulturalPractice;
+	}
+
 
 }

@@ -5,6 +5,7 @@ import java.util.List;
 
 public interface Filter {
 	
-	String MostFrequently();;
+	String MostFrequently();
+	public Object Find(String value);
 	
 }

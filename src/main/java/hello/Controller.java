@@ -22,4 +22,11 @@ public class Controller {
 		return (List<CulturalPractice>) c.Find(name);
 	}
 	
+	@RequestMapping(value = "/filterOr", method = RequestMethod.GET)
+	public List<CulturalPractice> filterByTowmOr(@RequestParam("name") String[] name)
+	{
+		DatasetCulturalPractice c = new DatasetCulturalPractice ();
+		return (List<CulturalPractice>) c.Find(name);
+	}
+	
 }
