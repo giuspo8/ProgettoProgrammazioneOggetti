@@ -6,6 +6,16 @@ import java.util.Map;
 
 public class DatasetCulturalPractice implements Filter {
 	private static ArrayList<CulturalPractice> practices;
+	private static List<Error> errors;
+
+	public static List<Error> getErrors() {
+		return errors;
+	}
+
+
+	public static void setErrors(List<Error> errors2) {
+		DatasetCulturalPractice.errors = errors2;
+	}
 
 
 	@Override

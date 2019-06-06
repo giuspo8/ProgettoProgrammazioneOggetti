@@ -13,7 +13,9 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 		Parser p= new Parser(filename,new Scanner(filename));
 		p.openStream();
-		ArrayList<CulturalPractice>practices=p.parseCulturalPractice(p.getFile());
+		ArrayList<CulturalPractice> practices;
+
+		practices = p.parseCulturalPractice(p.getFile());
 		p.openStream();
 		ArrayList<Institution> partners=p.parsePartners(p.getFile());
 		p.openStream();
@@ -30,20 +32,20 @@ public class Application {
 			System.out.println(c);
 		}
 
-		for (Institution pr:DatasetPartners.getPartners()) 
-		{
-			System.out.println(pr);
-		}
+		//for (Institution pr:DatasetPartners.getPartners()) 
+		//{
+			//System.out.println(pr);
+		//}
 
-		for (Institution prop:DatasetProponents.getProponents()) 
-		{
-			System.out.println(prop);
-		}
+		//for (Institution prop:DatasetProponents.getProponents()) 
+		//{
+			//System.out.println(prop);
+		//}
 
-		for (Town t:DatasetTown.getTowns()) 
-		{
-			System.out.println(t);
-		}
+		//for (Town t:DatasetTown.getTowns()) 
+		//{
+			//System.out.println(t);
+		//}
 
 	}
 
