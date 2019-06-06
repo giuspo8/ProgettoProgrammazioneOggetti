@@ -1,7 +1,4 @@
-package hello;
-import java.util.ArrayList;
-import java.util.List;
-
+package datasetCulturalPractice;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -68,15 +65,13 @@ public class Controller {
 	@RequestMapping(value = "/data/errors", method = RequestMethod.GET)
 	public Object ShowErrors()
 	{
-		DatasetCulturalPractice c = new DatasetCulturalPractice();
-		return c.getErrors();
+		return DatasetCulturalPractice.getErrors();
 	}
 	
 	@RequestMapping(value = "/count", method = RequestMethod.GET)
 	public Object Count()
 	{
-		DatasetCulturalPractice c = new DatasetCulturalPractice();
-		return "il numero di elementi con formattazione valida nel DataSet è pari a "+c.getPractices().size();
+		return "il numero di elementi con formattazione valida nel DataSet è pari a "+DatasetCulturalPractice.getPractices().size();
 	}
 	
 	@RequestMapping(value = "/partners", method = RequestMethod.GET)

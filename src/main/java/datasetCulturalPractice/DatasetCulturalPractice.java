@@ -1,4 +1,4 @@
-package hello;
+package datasetCulturalPractice;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -172,7 +172,6 @@ public class DatasetCulturalPractice implements Filter {
 	}
 
 	public Object FindUnique (String name) {
-		List<CulturalPractice> listCulturalPractice = new ArrayList<CulturalPractice>();
 		switch(name) {
 		case "title":{
 			return prepareCountTitle();
@@ -288,9 +287,9 @@ public class DatasetCulturalPractice implements Filter {
 		return partners;
 	}
 
-	public HashSet<Town> getTowns()
+	public Set<Town> getTowns()
 	{
-		HashSet<Town> towns=new HashSet<Town>();
+		Set<Town> towns=new HashSet<Town>();
 
 		for (CulturalPractice c:practices) 
 		{

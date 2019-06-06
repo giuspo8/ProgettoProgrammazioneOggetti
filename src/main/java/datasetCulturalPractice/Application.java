@@ -1,4 +1,4 @@
-package hello;
+package datasetCulturalPractice;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -17,11 +17,6 @@ public class Application {
 
 		practices = p.parseCulturalPractice(p.getFile());
 		p.openStream();
-		ArrayList<Institution> partners=p.parsePartners(p.getFile());
-		p.openStream();
-		ArrayList<Proponent> proponents=p.parseProponents(p.getFile());
-		p.openStream();
-		ArrayList<Town> towns=p.parseTowns(p.getFile());
 		DatasetCulturalPractice.setPractices(practices);
 
 		for (CulturalPractice c:DatasetCulturalPractice.getPractices()) 
@@ -29,20 +24,20 @@ public class Application {
 			System.out.println(c);
 		}
 
-		//for (Institution pr:DatasetPartners.getPartners()) 
-		//{
-			//System.out.println(pr);
-		//}
+		/*for (Institution pr:DatasetPartners.getPartners()) 
+		{
+			System.out.println(pr);
+		}
 
-		//for (Institution prop:DatasetProponents.getProponents()) 
-		//{
-			//System.out.println(prop);
-		//}
+		for (Institution prop:DatasetProponents.getProponents()) 
+		{
+			System.out.println(prop);
+		}
 
-		//for (Town t:DatasetTown.getTowns()) 
-		//{
-			//System.out.println(t);
-		//}
+		for (Town t:DatasetTown.getTowns()) 
+		{
+			System.out.println(t);
+		}*/
 
 	}
 

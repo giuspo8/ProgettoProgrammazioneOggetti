@@ -1,4 +1,4 @@
-package hello;
+package datasetCulturalPractice;
 
 public class Proponent extends Institution {
 
@@ -43,6 +43,7 @@ public class Proponent extends Institution {
 	public String toString() {
 		return "Proponent [site=" + site + ", town=" + town + ", name=" + name + "]";
 	}
+	
 	
 
 }

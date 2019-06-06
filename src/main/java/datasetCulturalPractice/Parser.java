@@ -1,4 +1,4 @@
-package hello;
+package datasetCulturalPractice;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -78,10 +78,6 @@ public class Parser {
 						}
 						else
 						{
-							Town t=new Town(a[5],a[4]);
-							//towns.add(t);
-							Proponent p=new Proponent(a[2],a[3],new Town(a[5],a[4]));
-							//proponents.add(p);
 							String[] b = a[FIELDNUMBERS-1].split(regex);
 							for (int i=0; i<b.length; i++)
 							{

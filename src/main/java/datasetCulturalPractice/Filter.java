@@ -1,7 +1,4 @@
-package hello;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+package datasetCulturalPractice;
 
 public interface Filter {
 	
