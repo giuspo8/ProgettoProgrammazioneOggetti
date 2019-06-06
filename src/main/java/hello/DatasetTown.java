@@ -11,7 +11,7 @@ public class DatasetTown implements Filter {
 	}
 
 	@Override
-	public Object MostFrequently() {
+	public String MostFrequently() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -22,6 +22,11 @@ public class DatasetTown implements Filter {
 
 	public static void setTowns(ArrayList<Town> towns) {
 		DatasetTown.towns = towns;
+	}
+
+	public Object Find(String value) {
+		// TODO Auto-generated method stub
+		return null;
 	} 
 
 

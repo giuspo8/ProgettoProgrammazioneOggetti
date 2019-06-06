@@ -12,7 +12,7 @@ public class DatasetPartners implements Filter {
 	}
 
 	@Override
-	public Partner MostFrequently() {
+	public String MostFrequently() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -24,5 +24,12 @@ public class DatasetPartners implements Filter {
 	public static void setPartners(ArrayList<Institution> partners) {
 		DatasetPartners.partners = partners;
 	}
+
+	public Object Find(String value) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
 
 }

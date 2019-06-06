@@ -192,9 +192,9 @@ public class Parser {
 		return partners;
 	}
 
-	public ArrayList<Institution> parseProponents(Scanner file){
+	public ArrayList<Proponent> parseProponents(Scanner file){
 
-		ArrayList<Institution> proponents = new ArrayList<Institution>();
+		ArrayList<Proponent> proponents = new ArrayList<Proponent>();
 		int count=0;
 		while (file.hasNext())
 		{
@@ -209,7 +209,7 @@ public class Parser {
 					else
 					{
 
-						Institution p=new Proponent(a[2],a[3],new Town(a[5],a[4]));
+						Proponent p=new Proponent(a[2],a[3],new Town(a[5],a[4]));
 						proponents.add(p);
 					}
 				}

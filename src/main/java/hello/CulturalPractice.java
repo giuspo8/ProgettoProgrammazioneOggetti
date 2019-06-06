@@ -6,9 +6,9 @@ public class CulturalPractice {
 	private String title;
 	private int number;
 	private ArrayList <Institution> partners;
-	private Institution proponent;
+	private Proponent proponent;
 	
-	public CulturalPractice(String title, int number, ArrayList<Institution> partners, Institution proponent) {
+	public CulturalPractice(String title, int number, ArrayList<Institution> partners, Proponent proponent) {
 		super();
 		this.title = title;
 		this.number = number;
@@ -53,12 +53,12 @@ public class CulturalPractice {
 	}
 
 
-	public Institution getProponent() {
+	public Proponent getProponent() {
 		return proponent;
 	}
 
 
-	public void setProponent(Institution proponent) {
+	public void setProponent(Proponent proponent) {
 		this.proponent = proponent;
 	}
 

@@ -17,7 +17,7 @@ public class Application {
 		p.openStream();
 		ArrayList<Institution> partners=p.parsePartners(p.getFile());
 		p.openStream();
-		ArrayList<Institution> proponents=p.parseProponents(p.getFile());
+		ArrayList<Proponent> proponents=p.parseProponents(p.getFile());
 		p.openStream();
 		ArrayList<Town> towns=p.parseTowns(p.getFile());
 		DatasetCulturalPractice.setPractices(practices);
