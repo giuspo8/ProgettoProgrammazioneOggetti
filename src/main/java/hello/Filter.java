@@ -8,4 +8,5 @@ public interface Filter {
 	String MostFrequently();
 	public Object Find(String value);
 	
+	
 }

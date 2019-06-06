@@ -11,22 +11,43 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controller {
 
 	@RequestMapping("/data")
-	public ArrayList<CulturalPractice> data(){
+	public Object data(){
 		return DatasetCulturalPractice.getPractices();
 	}
 	
-	@RequestMapping(value = "/filter", method = RequestMethod.GET)
-	public List<CulturalPractice> filterByTowm(@RequestParam("name") String name)
+	@RequestMapping(value = "/filterbyTown", method = RequestMethod.GET)
+	public Object filterByTowm(@RequestParam("name") String name)
 	{
 		DatasetCulturalPractice c = new DatasetCulturalPractice ();
-		return (List<CulturalPractice>) c.Find(name);
+		return c.Find(name);
 	}
 	
-	@RequestMapping(value = "/filterOr", method = RequestMethod.GET)
-	public List<CulturalPractice> filterByTowmOr(@RequestParam("name") String[] name)
+	@RequestMapping(value = "/filterbyTownOr", method = RequestMethod.GET)
+	public Object filterByTowmOr(@RequestParam("name") String[] name)
 	{
 		DatasetCulturalPractice c = new DatasetCulturalPractice ();
-		return (List<CulturalPractice>) c.Find(name);
+		return  c.Find(name);
 	}
 	
+	@RequestMapping(value = "/filterByNumbers", method = RequestMethod.GET)
+	public Object filterByTowmOr(@RequestParam("numbers") int[] numbers)
+	{
+		DatasetCulturalPractice c = new DatasetCulturalPractice ();
+		return c.Find(numbers);
+	}
+	
+	@RequestMapping(value = "/filterByNumber", method = RequestMethod.GET)
+	public Object filterByTowmOr(@RequestParam("type") String type ,@RequestParam("number") int number)
+	{
+		DatasetCulturalPractice c = new DatasetCulturalPractice ();
+		return c.Find(type,number);
+	}
+	
+	@RequestMapping(value = "/filterByPartner", method = RequestMethod.GET)
+	public Object filterByPartner(@RequestParam("partner") String name)
+	{
+		DatasetCulturalPractice c = new DatasetCulturalPractice ();
+		Institution partner=new Partner(name);
+		return c.Find(partner);
+	}
 }
