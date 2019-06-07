@@ -94,4 +94,10 @@ public class Controller {
 		DatasetCulturalPractice c = new DatasetCulturalPractice();
 		return c.getProponents();
 	}
+	
+	@RequestMapping(value = "/metadata", method = RequestMethod.GET)
+	public Object metadata()
+	{
+		return DatasetCulturalPractice.getMetadata();
+	}
 }

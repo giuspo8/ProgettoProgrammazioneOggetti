@@ -8,7 +8,26 @@ import java.util.Set;
 
 public class DatasetCulturalPractice implements Filter {
 	private static ArrayList<CulturalPractice> practices;
+	private static ArrayList<Metadata> metadata;
 	private static List<Error> errors;
+	
+	
+
+	public static ArrayList<Metadata> getMetadata() {
+		return metadata;
+	}
+
+	public static void setMetadata(ArrayList<Metadata> metadata) {
+		metadata.add(new Metadata("title","Titolo buona pratica culturale","string"));
+		metadata.add(new Metadata("number","Numero ordine di arrivo domanda","integer"));
+		metadata.add(new Metadata("Proponent/name","Soggetto proponente","string"));
+		metadata.add(new Metadata("Proponent/site","Sito internet proponente","string"));
+		metadata.add(new Metadata("Proponent/Town/name","Provincia sede legale proponente","string"));
+		metadata.add(new Metadata("Proponent/Town/province","Comune sede legale proponente ","string"));
+		metadata.add(new Metadata("Partner/name","Partner","array of string"));
+		DatasetCulturalPractice.metadata = metadata;
+	}
+
 
 	public static List<Error> getErrors() {
 		return errors;

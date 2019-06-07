@@ -16,10 +16,11 @@ public class Application {
 		Parser p= new Parser(filename,new Scanner(filename));
 		p.openStream();
 		ArrayList<CulturalPractice> practices;
-
+		
 		practices = p.parseCulturalPractice(p.getFile());
 		p.openStream();
 		DatasetCulturalPractice.setPractices(practices);
+		DatasetCulturalPractice.setMetadata(new ArrayList<Metadata>());
 
 		for (CulturalPractice c:DatasetCulturalPractice.getPractices()) 
 		{
