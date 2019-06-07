@@ -1,10 +1,13 @@
 package datasetCulturalPractice;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 public class DatasetCulturalPractice implements Filter {
 	private static ArrayList<CulturalPractice> practices;
@@ -40,37 +43,29 @@ public class DatasetCulturalPractice implements Filter {
 
 
 	@Override
-	public String MostFrequently(String choice) {
+	public String MostFrequently(String name) {
 		int max=0;
 		Map<String,Integer> map;
 		String maxKey=null;
-		switch (choice) {
-		case "title":{
-			map=prepareCountTitle();
-		}
-		break;
-		case "proponent":{
-			map=prepareCountProponent();
-		}
-		break;
-		case "site":{
-			map=prepareCountSite();
-		}
-		break;
-		case "province":{
-			map=prepareCountProvince();
-		}
-		break;
-		case "town":{
-			map=prepareCountTown();
-		}
-		break;
-		case"partner":{
-			map=prepareCountPartner();
-		}
-		break;
-		default: return "Attributo non presente";
-		}
+		Method method = null;
+		String choice="prepareCount"+name.substring(0, 1).toUpperCase()+name.substring(1);
+		
+			try {
+				method=this.getClass().getMethod(choice);
+			} 
+			catch (NoSuchMethodException | SecurityException e) 
+			{
+				e.printStackTrace();
+				return "Attributo non presente";
+			}
+			try {
+				map=(Map<String, Integer>) method.invoke(this);
+			} 
+			catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) 
+			{
+				e.printStackTrace();
+				return "Attributo non presente";
+			}
 
 		for (String s:map.keySet())
 		{
@@ -192,28 +187,25 @@ public class DatasetCulturalPractice implements Filter {
 	}
 
 	public Object FindUnique (String name) {
-		switch(name) {
-		case "title":{
-			return prepareCountTitle();
-		}
-		case "proponent":{
-			return prepareCountProponent();
-		}
-		case "site":{
-			return prepareCountSite();
-		}
-		case "province":{
-			return prepareCountProvince();
-		}
-		case "town":{
-			return prepareCountTown();
-		}
-		case"partner":{
-			return prepareCountPartner();
-		}
-		}
-		return "Attributo non presente";
-
+		Method method = null;
+		String choice="prepareCount"+name.substring(0, 1).toUpperCase()+name.substring(1);
+		
+			try {
+				method=this.getClass().getMethod(choice);
+			} 
+			catch (NoSuchMethodException | SecurityException e) 
+			{
+				e.printStackTrace();
+				return "Attributo non presente";
+			}
+			try {
+				return method.invoke(this);
+			} 
+			catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) 
+			{
+				e.printStackTrace();
+				return "Attributo non presente";
+			}
 	}
 
 	public Map<String,Integer> prepareCountTitle()
@@ -330,6 +322,19 @@ public class DatasetCulturalPractice implements Filter {
 		}
 		return proponents;
 	}
+
+	@Override
+	public Collection logicalFilter(Object attribute, Object operator, Object value) {
+		return null;
+	}
+
+	@Override
+	public Collection conditionalFilter(Object attribute, Object operator, Object value) {
+		return null;
+	}
+
+
+
 
 
 

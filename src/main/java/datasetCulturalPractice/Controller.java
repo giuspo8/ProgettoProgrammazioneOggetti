@@ -12,6 +12,12 @@ public class Controller {
 		return DatasetCulturalPractice.getPractices();
 	}
 	
+	@RequestMapping(value = "/filter", method = RequestMethod.GET)
+	public Object filter(@RequestParam("attribute") String attribute,@RequestParam("operator") String operator,@RequestParam("value") String value)
+	{
+		return null;
+	}
+	
 	@RequestMapping(value = "/filterbyTown", method = RequestMethod.GET)
 	public Object filterByTowm(@RequestParam("name") String name)
 	{
