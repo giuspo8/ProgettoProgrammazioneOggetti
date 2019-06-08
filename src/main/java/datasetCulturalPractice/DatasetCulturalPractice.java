@@ -304,15 +304,15 @@ public class DatasetCulturalPractice implements Filter<String,String[]> {
 	@Override
 	public Object logicalFilter(String attribute, String operator, String[] value) {
 
-		Set<CulturalPractice> setIn=new HashSet<CulturalPractice>();
-		Set<CulturalPractice> setNotIn=new HashSet<CulturalPractice>();
-		setNotIn.addAll(practices);
+		List<CulturalPractice> listIn=new ArrayList<CulturalPractice>();
+		List<CulturalPractice> listNotIn=new ArrayList<CulturalPractice>();
+		listNotIn.addAll(practices);
 		switch(attribute) {
 		case "town":
 			for (CulturalPractice c:practices) {
 				for (int i=0;i<value.length;i++) {
 					if (value[i].equals(c.getProponent().getTown().getName()))
-						setIn.add(c);
+						listIn.add(c);
 				}
 			}
 			break;
@@ -321,7 +321,7 @@ public class DatasetCulturalPractice implements Filter<String,String[]> {
 				for (int i=0;i<value.length;i++) {
 					for (Institution p:c.getPartners()) {
 						if (value[i].equals(p.getName()))
-							setIn.add(c);
+							listIn.add(c);
 					}
 
 				}
@@ -331,7 +331,7 @@ public class DatasetCulturalPractice implements Filter<String,String[]> {
 			for (CulturalPractice c:practices) {
 				for (int i=0;i<value.length;i++) {
 					if (value[i].equals(c.getProponent().getName()))
-						setIn.add(c);
+						listIn.add(c);
 				}
 			}
 			break;
@@ -339,7 +339,7 @@ public class DatasetCulturalPractice implements Filter<String,String[]> {
 			for (CulturalPractice c:practices) {
 				for (int i=0;i<value.length;i++) {
 					if (value[i].equals(c.getTitle()))
-						setIn.add(c);
+						listIn.add(c);
 				}
 			}
 			break;
@@ -347,7 +347,7 @@ public class DatasetCulturalPractice implements Filter<String,String[]> {
 			for (CulturalPractice c:practices) {
 				for (int i=0;i<value.length;i++) {
 					if (value[i].equals(c.getProponent().getTown().getProvince()))
-						setIn.add(c);
+						listIn.add(c);
 				}
 			}
 			break;
@@ -355,16 +355,16 @@ public class DatasetCulturalPractice implements Filter<String,String[]> {
 			for (CulturalPractice c:practices) {
 				for (int i=0;i<value.length;i++) {
 					if (value[i].equals(c.getProponent().getSite()))
-						setIn.add(c);
+						listIn.add(c);
 				}
 			}
 			break;
 		default: return "attributo non valido";
 		}
-		if (operator.equals("in")) return setIn;
+		if (operator.equals("in")) return listIn;
 		else if (operator.equals("nin")||(operator.equals("not")&&value.length==1)) {
-			setNotIn.removeAll(setIn);
-			return setNotIn;
+			listNotIn.removeAll(listIn);
+			return listNotIn;
 		}
 		else return "operatore non valido";	
 }
