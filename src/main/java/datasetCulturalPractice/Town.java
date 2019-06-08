@@ -66,17 +66,5 @@ public class Town {
 		return true;
 	}
 
-	/*
-	public boolean equals(Object obj) {
-		if (obj instanceof Town)
-		{
-			if (name.equals(((Town) obj).getName())&&province.equals(((Town) obj).getProvince()))
-				return true;
-			else return false;
-		}
-		else return super.equals(obj);
-	}*/
-
-
 
 }

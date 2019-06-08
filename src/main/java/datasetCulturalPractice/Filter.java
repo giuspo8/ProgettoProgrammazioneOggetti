@@ -1,14 +1,11 @@
 package datasetCulturalPractice;
 
-import java.util.Collection;
-
-public interface Filter<T,E,S> {
+public interface Filter<T,S> {
 	
-	public Object MostFrequently(String choice);
-	public Object Find(String value);
-	public Object FindUnique (String name);
-	public Collection<E> logicalFilter(T attribute,T operator,T value);
-	public Collection<E> conditionalFilter(T attribute,T operator,S value);
+	public Object MostFrequently(T choice);
+	public Object FindUnique (T name);
+	public Object conditionalFilter(T operator, int... numbers);
+	public Object logicalFilter(T attribute, T operator, S value);
 	
 	
 	

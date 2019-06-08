@@ -1,4 +1,7 @@
 package datasetCulturalPractice;
+import java.util.HashSet;
+import java.util.Set;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,48 +15,22 @@ public class Controller {
 		return DatasetCulturalPractice.getPractices();
 	}
 	
-	@RequestMapping(value = "/filter", method = RequestMethod.GET)
-	public Object filter(@RequestParam("attribute") String attribute,@RequestParam("operator") String operator,@RequestParam("value") String value)
-	{
-		return null;
-	}
-	
-	@RequestMapping(value = "/filterbyTown", method = RequestMethod.GET)
-	public Object filterByTowm(@RequestParam("name") String name)
+	@RequestMapping(value = "/conditionalFilter", method = RequestMethod.GET)
+	public Object filterConditional(@RequestParam("numbers") int[] numbers,@RequestParam("operator")String operator)
 	{
 		DatasetCulturalPractice c = new DatasetCulturalPractice ();
-		return c.Find(name);
+		return c.conditionalFilter(operator,numbers);
 	}
 	
-	@RequestMapping(value = "/filterbyTownOr", method = RequestMethod.GET)
-	public Object filterByTowmOr(@RequestParam("name") String[] name)
+	@RequestMapping(value = "/logicalFilter", method = RequestMethod.GET)
+	public Object filterConditional(@RequestParam("attribute") String attribute,@RequestParam("operator")String operator,
+			@RequestParam("value")String[] value)
 	{
 		DatasetCulturalPractice c = new DatasetCulturalPractice ();
-		return  c.Find(name);
+		return c.logicalFilter(attribute,operator,value);
 	}
 	
-	@RequestMapping(value = "/filterByNumbers", method = RequestMethod.GET)
-	public Object filterByTowmOr(@RequestParam("numbers") int[] numbers)
-	{
-		DatasetCulturalPractice c = new DatasetCulturalPractice ();
-		return c.Find(numbers);
-	}
-	
-	@RequestMapping(value = "/filterByNumber", method = RequestMethod.GET)
-	public Object filterByTowmOr(@RequestParam("type") String type ,@RequestParam("number") int number)
-	{
-		DatasetCulturalPractice c = new DatasetCulturalPractice ();
-		return c.Find(type,number);
-	}
-	
-	@RequestMapping(value = "/filterByPartner", method = RequestMethod.GET)
-	public Object filterByPartner(@RequestParam("partner") String name)
-	{
-		DatasetCulturalPractice c = new DatasetCulturalPractice ();
-		Institution partner=new Partner(name);
-		return c.Find(partner);
-	}
-	
+
 	@RequestMapping(value = "/countUnique", method = RequestMethod.GET)
 	public Object FindUniqueElement(@RequestParam("attribute") String name)
 	{
@@ -83,22 +60,25 @@ public class Controller {
 	@RequestMapping(value = "/partners", method = RequestMethod.GET)
 	public Object partners()
 	{
+		Set<Institution> partners=new HashSet<Institution>();
 		DatasetCulturalPractice c = new DatasetCulturalPractice();
-		return c.getPartners();
+		return c.getPartners(partners);
 	}
 	
 	@RequestMapping(value = "/towns", method = RequestMethod.GET)
 	public Object towns()
 	{
+		Set<Town> towns=new HashSet<Town>();
 		DatasetCulturalPractice c = new DatasetCulturalPractice();
-		return c.getTowns();
+		return c.getTowns(towns);
 	}
 	
 	@RequestMapping(value = "/proponents", method = RequestMethod.GET)
 	public Object proponents()
 	{
+		Set<Institution> proponents=new HashSet<Institution>();
 		DatasetCulturalPractice c = new DatasetCulturalPractice();
-		return c.getProponents();
+		return c.getProponents(proponents);
 	}
 	
 	@RequestMapping(value = "/metadata", method = RequestMethod.GET)
