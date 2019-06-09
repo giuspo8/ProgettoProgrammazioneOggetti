@@ -82,8 +82,6 @@ public class CulturalPractice {
 			return getProponent().getName();
 		case "site":
 			return getProponent().getSite();
-		case "title":
-			return getTitle();
 		case "partner":
 			for (Institution i:getPartners()) {
 				if (i.getName().contains(value))
