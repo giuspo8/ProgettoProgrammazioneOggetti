@@ -17,13 +17,13 @@ public class DatasetCulturalPractice implements Filter<String,String[]> {
 	}
 
 	public static void setMetadata(ArrayList<Metadata> metadata) {
-		metadata.add(new Metadata("title","Titolo buona pratica culturale","string"));
-		metadata.add(new Metadata("number","Numero ordine di arrivo domanda","integer"));
-		metadata.add(new Metadata("Proponent/name","Soggetto proponente","string"));
-		metadata.add(new Metadata("Proponent/site","Sito internet proponente","string"));
-		metadata.add(new Metadata("Proponent/Town/name","Provincia sede legale proponente","string"));
-		metadata.add(new Metadata("Proponent/Town/province","Comune sede legale proponente ","string"));
-		metadata.add(new Metadata("Partner/name","Partner","array of string"));
+		metadata.add(new Metadata("practice","Titolo buona pratica culturale","string"));
+		metadata.add(new Metadata("numbers","Numero ordine di arrivo domanda","integer"));
+		metadata.add(new Metadata("proponents","Soggetto proponente","string"));
+		metadata.add(new Metadata("site","Sito internet proponente","string"));
+		metadata.add(new Metadata("town","Comune sede legale proponente","string"));
+		metadata.add(new Metadata("province","Provincia sede legale proponente ","string"));
+		metadata.add(new Metadata("partner","Partner","array of string"));
 		DatasetCulturalPractice.metadata = metadata;
 	}
 
@@ -39,7 +39,7 @@ public class DatasetCulturalPractice implements Filter<String,String[]> {
 
 
 	@Override
-	public String MostFrequently(String name) {
+	public String MostFrequently(String name) throws wrongAttributeException {
 		List<String> elementsList=new ArrayList<String>();
 		int max=0;
 		Map<String,Integer> map;
@@ -153,12 +153,12 @@ public class DatasetCulturalPractice implements Filter<String,String[]> {
 	}
 
 
-	public Object FindUnique (String name) {
+	public Object FindUnique (String name) throws wrongAttributeException {
 		List<String> elementsList=new ArrayList<String>();
 		return prepareCount(name,elementsList);
 	}
 
-	public Map<String,Integer> prepareCount(String choice,List<String> elementsList)
+	public Map<String,Integer> prepareCount(String choice,List<String> elementsList) throws wrongAttributeException
 	{
 		for (CulturalPractice c:practices) 
 		{
@@ -223,7 +223,7 @@ public class DatasetCulturalPractice implements Filter<String,String[]> {
 	}
 
 	@Override
-	public Object logicalFilter(String[] attribute, String operator, String[] value) {
+	public Object logicalFilter(String[] attribute, String operator, String[] value) throws wrongAttributeException {
 
 		List<CulturalPractice> listIn=new ArrayList<CulturalPractice>();
 		List<CulturalPractice> listIn2=new ArrayList<CulturalPractice>();
