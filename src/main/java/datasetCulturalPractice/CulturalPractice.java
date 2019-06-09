@@ -70,6 +70,26 @@ public class CulturalPractice {
 				+ proponent + "]";
 	}
 	
-	
+	public String getter(String attribute,String value) {
+		switch (attribute) {
+		case "town":
+			return getProponent().getTown().getName();
+		case "province":
+			return getProponent().getTown().getProvince();
+		case "practice":
+			return getTitle();
+		case "proponents":
+			return getProponent().getName();
+		case "site":
+			return getProponent().getSite();
+		case "partner":
+			for (Institution i:getPartners()) {
+				if (i.getName().contains(value))
+					return value;
+			}
+			return null;
+		default: return null;
+		}
+	}
 	
 }

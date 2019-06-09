@@ -307,60 +307,12 @@ public class DatasetCulturalPractice implements Filter<String,String[]> {
 		List<CulturalPractice> listIn=new ArrayList<CulturalPractice>();
 		List<CulturalPractice> listNotIn=new ArrayList<CulturalPractice>();
 		listNotIn.addAll(practices);
-		switch(attribute) {
-		case "town":
 			for (CulturalPractice c:practices) {
 				for (int i=0;i<value.length;i++) {
-					if (value[i].equals(c.getProponent().getTown().getName()))
+					if (value[i].contains(c.getter(attribute,value[i])))
 						listIn.add(c);
 				}
 			}
-			break;
-		case"partner":
-			for (CulturalPractice c:practices) {
-				for (int i=0;i<value.length;i++) {
-					for (Institution p:c.getPartners()) {
-						if (value[i].equals(p.getName()))
-							listIn.add(c);
-					}
-
-				}
-			}
-			break;
-		case"proponents":
-			for (CulturalPractice c:practices) {
-				for (int i=0;i<value.length;i++) {
-					if (value[i].equals(c.getProponent().getName()))
-						listIn.add(c);
-				}
-			}
-			break;
-		case"practice":
-			for (CulturalPractice c:practices) {
-				for (int i=0;i<value.length;i++) {
-					if (value[i].equals(c.getTitle()))
-						listIn.add(c);
-				}
-			}
-			break;
-		case "province":
-			for (CulturalPractice c:practices) {
-				for (int i=0;i<value.length;i++) {
-					if (value[i].equals(c.getProponent().getTown().getProvince()))
-						listIn.add(c);
-				}
-			}
-			break;
-		case "site":
-			for (CulturalPractice c:practices) {
-				for (int i=0;i<value.length;i++) {
-					if (value[i].equals(c.getProponent().getSite()))
-						listIn.add(c);
-				}
-			}
-			break;
-		default: return "attributo non valido";
-		}
 		if (operator.equals("in")) return listIn;
 		else if (operator.equals("nin")||(operator.equals("not")&&value.length==1)) {
 			listNotIn.removeAll(listIn);
@@ -368,7 +320,6 @@ public class DatasetCulturalPractice implements Filter<String,String[]> {
 		}
 		else return "operatore non valido";	
 }
-
 
 
 }
