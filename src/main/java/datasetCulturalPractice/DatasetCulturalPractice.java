@@ -233,14 +233,14 @@ public class DatasetCulturalPractice implements Filter<String,String[]> {
 		
 		for (CulturalPractice c:practices) {
 			if (attribute.length>1) {
-				if (value[1].contains(c.getter(attribute[1],value[1])))
+				if (c.getter(attribute[1],value[1]).contains(value[1]))
 					listIn2.add(c);
-				if (value[0].contains(c.getter(attribute[0],value[0])))
+				if (c.getter(attribute[0],value[0]).contains(value[0]))
 					listIn.add(c);
 			}
 			else {
 				for (int i=0;i<value.length;i++) {
-					if (value[i].contains(c.getter(attribute[0],value[i])))
+					if (c.getter(attribute[0],value[i]).contains(value[i]))
 						listIn.add(c);
 					}
 			}

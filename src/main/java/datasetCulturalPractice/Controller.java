@@ -23,7 +23,7 @@ public class Controller {
 	}
 	
 	@RequestMapping(value = "/logicalFilter", method = RequestMethod.GET)
-	public Object filterConditional(@RequestParam("attribute") String[] attribute,@RequestParam("operator")String operator,
+	public Object filterLogical(@RequestParam("attribute") String[] attribute,@RequestParam("operator")String operator,
 			@RequestParam("value")String[] value)
 	{
 		DatasetCulturalPractice c = new DatasetCulturalPractice ();
