@@ -226,23 +226,45 @@ public class DatasetCulturalPractice implements Filter<String,String[]> {
 	}
 
 	@Override
-	public Object logicalFilter(String attribute, String operator, String[] value) {
+	public Object logicalFilter(String[] attribute, String operator, String[] value) {
 
 		List<CulturalPractice> listIn=new ArrayList<CulturalPractice>();
+		List<CulturalPractice> listIn2=new ArrayList<CulturalPractice>();
 		List<CulturalPractice> listNotIn=new ArrayList<CulturalPractice>();
+		List<CulturalPractice> listAnd=new ArrayList<CulturalPractice>();
 		listNotIn.addAll(practices);
+		
 		for (CulturalPractice c:practices) {
-			for (int i=0;i<value.length;i++) {
-				if (value[i].contains(c.getter(attribute,value[i])))
+			if (attribute.length>1) {
+				if (value[1].contains(c.getter(attribute[1],value[1])))
+					listIn2.add(c);
+				if (value[0].contains(c.getter(attribute[0],value[0])))
 					listIn.add(c);
 			}
+			else {
+				for (int i=0;i<value.length;i++) {
+					if (value[i].contains(c.getter(attribute[0],value[i])))
+						listIn.add(c);
+					}
+			}
 		}
-		if (operator.equals("in")) return listIn;
+		if (operator.equals("in")||operator.equals("or")) {
+			listIn.addAll(listIn2);
+			return listIn;
+		}
 		else if (operator.equals("nin")||(operator.equals("not")&&value.length==1)) {
 			listNotIn.removeAll(listIn);
 			return listNotIn;
 		}
-		else return "operatore non valido";	
+		else if (operator.equals("and")) {
+			for (CulturalPractice c : listIn) {
+	            if(listIn2.contains(c)) {
+	                listAnd.add(c);
+	            }
+	        }
+			return listAnd;
+		};
+		return "operatore non valido";	
 	}
 
 
