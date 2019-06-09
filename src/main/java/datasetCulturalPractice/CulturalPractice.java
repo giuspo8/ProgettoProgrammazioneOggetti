@@ -70,7 +70,7 @@ public class CulturalPractice {
 				+ proponent + "]";
 	}
 	
-	public String getter(String attribute,String value) throws wrongAttributeException {
+	public String getter(String attribute,String value) throws WrongAttributeException {
 		switch (attribute) {
 		case "town":
 			return getProponent().getTown().getName();
@@ -88,7 +88,7 @@ public class CulturalPractice {
 					return value;
 			}
 			return "Attributo non presente";
-		default: throw new wrongAttributeException();
+		default: throw new WrongAttributeException();
 		}
 	}
 	

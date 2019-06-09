@@ -17,7 +17,7 @@ public class Controller {
 		return "i dati inseriti non sono nel formato corretto!";
 	}
 	
-	@ExceptionHandler (wrongAttributeException.class)
+	@ExceptionHandler (WrongAttributeException.class)
 	public Object conflict2(){
 		return "attributo non corretto!";
 	}
@@ -37,7 +37,7 @@ public class Controller {
 
 	@RequestMapping(value = "/logicalFilter", method = RequestMethod.GET)
 	public Object filterLogical(@RequestParam("attribute") String[] attribute,@RequestParam("operator")String operator,
-			@RequestParam("value")String[] value) throws wrongAttributeException
+			@RequestParam("value")String[] value) throws WrongAttributeException
 	{
 		DatasetCulturalPractice c = new DatasetCulturalPractice ();
 		return c.logicalFilter(attribute,operator,value);
@@ -45,14 +45,14 @@ public class Controller {
 
 
 	@RequestMapping(value = "/countUnique", method = RequestMethod.GET)
-	public Object FindUniqueElement(@RequestParam("attribute") String name) throws wrongAttributeException
+	public Object FindUniqueElement(@RequestParam("attribute") String name) throws WrongAttributeException
 	{
 		DatasetCulturalPractice c = new DatasetCulturalPractice();
 		return c.FindUnique(name);
 	}
 
 	@RequestMapping(value = "/mostFrequently", method = RequestMethod.GET)
-	public Object MostFrequently(@RequestParam("attribute") String name) throws wrongAttributeException
+	public Object MostFrequently(@RequestParam("attribute") String name) throws WrongAttributeException
 	{
 		DatasetCulturalPractice c = new DatasetCulturalPractice();
 		return c.MostFrequently(name);

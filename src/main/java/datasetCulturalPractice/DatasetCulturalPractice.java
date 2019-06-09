@@ -39,7 +39,7 @@ public class DatasetCulturalPractice implements Filter<String,String[]> {
 
 
 	@Override
-	public String MostFrequently(String name) throws wrongAttributeException {
+	public String MostFrequently(String name) throws WrongAttributeException {
 		List<String> elementsList=new ArrayList<String>();
 		int max=0;
 		Map<String,Integer> map;
@@ -153,12 +153,12 @@ public class DatasetCulturalPractice implements Filter<String,String[]> {
 	}
 
 
-	public Object FindUnique (String name) throws wrongAttributeException {
+	public Object FindUnique (String name) throws WrongAttributeException {
 		List<String> elementsList=new ArrayList<String>();
 		return prepareCount(name,elementsList);
 	}
 
-	public Map<String,Integer> prepareCount(String choice,List<String> elementsList) throws wrongAttributeException
+	public Map<String,Integer> prepareCount(String choice,List<String> elementsList) throws WrongAttributeException
 	{
 		for (CulturalPractice c:practices) 
 		{
@@ -223,7 +223,7 @@ public class DatasetCulturalPractice implements Filter<String,String[]> {
 	}
 
 	@Override
-	public Object logicalFilter(String[] attribute, String operator, String[] value) throws wrongAttributeException {
+	public Object logicalFilter(String[] attribute, String operator, String[] value) throws WrongAttributeException {
 
 		List<CulturalPractice> listIn=new ArrayList<CulturalPractice>();
 		List<CulturalPractice> listIn2=new ArrayList<CulturalPractice>();
