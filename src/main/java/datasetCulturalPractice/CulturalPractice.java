@@ -87,8 +87,8 @@ public class CulturalPractice {
 				if (i.getName().contains(value))
 					return value;
 			}
-			return null;
-		default: return null;
+			return "Attributo non presente";
+		default: return "Attributo non presente";
 		}
 	}
 	

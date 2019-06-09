@@ -47,25 +47,7 @@ public class DatasetCulturalPractice implements Filter<String,String[]> {
 		int max=0;
 		Map<String,Integer> map;
 		String maxKey=null;
-		Method method = null;
-		String choice="prepareCount"+name.substring(0, 1).toUpperCase()+name.substring(1);
-
-		try {
-			method=this.getClass().getMethod(choice,List.class);
-		} 
-		catch (NoSuchMethodException | SecurityException e) 
-		{
-			e.printStackTrace();
-			return "Attributo non presente";
-		}
-		try {
-			map=(Map<String, Integer>) method.invoke(this,elementsList);
-		} 
-		catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) 
-		{
-			e.printStackTrace();
-			return "Errore di programmazione";
-		}
+		map=prepareCount(name,elementsList);
 
 		for (String s:map.keySet())
 		{
@@ -176,79 +158,21 @@ public class DatasetCulturalPractice implements Filter<String,String[]> {
 
 	public Object FindUnique (String name) {
 		List<String> elementsList=new ArrayList<String>();
-		Method method = null;
-		String choice="prepareCount"+name.substring(0, 1).toUpperCase()+name.substring(1);
-
-		try {
-			method=this.getClass().getMethod(choice,List.class);
-		} 
-		catch (NoSuchMethodException | SecurityException e) 
-		{
-			e.printStackTrace();
-			return "Attributo non presente";
-		}
-		try {
-			return method.invoke(this,elementsList);
-		} 
-		catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) 
-		{
-			e.printStackTrace();
-			return "Attributo non presente";
-		}
+		return prepareCount(name,elementsList);
 	}
 
-	public Map<String,Integer> prepareCountTitle(List<String> elementsList)
+	public Map<String,Integer> prepareCount(String choice,List<String> elementsList)
 	{
 		for (CulturalPractice c:practices) 
 		{
-			elementsList.add(c.getTitle());
-		}
-		return CountElements(elementsList);
-	}
-
-	public Map<String,Integer> prepareCountSite(List<String> elementsList)
-	{
-		for (CulturalPractice c:practices) 
-		{
-			elementsList.add(c.getProponent().getSite());
-		}
-		return CountElements(elementsList);
-	}
-
-	public Map<String,Integer> prepareCountProvince(List<String> elementsList)
-	{
-		for (CulturalPractice c:practices) 
-		{
-			elementsList.add(c.getProponent().getTown().getProvince());
-		}
-		return CountElements(elementsList);
-	}
-
-	public Map<String,Integer> prepareCountTown(List<String> elementsList)
-	{
-		for (CulturalPractice c:practices) 
-		{
-			elementsList.add(c.getProponent().getTown().getName());
-		}
-		return CountElements(elementsList);
-	}
-
-	public Map<String,Integer> prepareCountPartner(List<String> elementsList)
-	{
-		for (CulturalPractice c:practices) 
-		{
-			for (Institution p:c.getPartners()) {
-				elementsList.add(p.getName());
+			if (choice.equals("partner")){
+				for (Institution p:c.getPartners()) {
+					elementsList.add(p.getName());
+				}
 			}
-		}
-		return CountElements(elementsList);
-	}
-
-	public Map<String,Integer> prepareCountProponent(List<String> elementsList)
-	{
-		for (CulturalPractice c:practices) 
-		{
-			elementsList.add(c.getProponent().getName());
+			else {
+				elementsList.add(c.getter(choice,null));
+			}
 		}
 		return CountElements(elementsList);
 	}
@@ -307,19 +231,19 @@ public class DatasetCulturalPractice implements Filter<String,String[]> {
 		List<CulturalPractice> listIn=new ArrayList<CulturalPractice>();
 		List<CulturalPractice> listNotIn=new ArrayList<CulturalPractice>();
 		listNotIn.addAll(practices);
-			for (CulturalPractice c:practices) {
-				for (int i=0;i<value.length;i++) {
-					if (value[i].contains(c.getter(attribute,value[i])))
-						listIn.add(c);
-				}
+		for (CulturalPractice c:practices) {
+			for (int i=0;i<value.length;i++) {
+				if (value[i].contains(c.getter(attribute,value[i])))
+					listIn.add(c);
 			}
+		}
 		if (operator.equals("in")) return listIn;
 		else if (operator.equals("nin")||(operator.equals("not")&&value.length==1)) {
 			listNotIn.removeAll(listIn);
 			return listNotIn;
 		}
 		else return "operatore non valido";	
-}
+	}
 
 
 }
