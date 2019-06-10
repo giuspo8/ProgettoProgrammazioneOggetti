@@ -6,6 +6,13 @@ import java.util.Scanner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * Una semplice Classe che contiene il main e quindi le chiamate ai metodi che saranno eseguite all'avvio dell'applicazione
+ * quali download e parsing del file
+ * @author Giuseppe Costantini
+ * @author Davide Vitaletti
+ * @version 1.0
+ */
 @SpringBootApplication
 public class Application {
 	static String filename = "buonepraticheculturaliregionelazio.csv";

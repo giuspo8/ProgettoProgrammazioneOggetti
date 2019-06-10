@@ -1,10 +1,23 @@
 package datasetCulturalPractice;
 
+/**
+ * Un soggetto proponente di una {@link CulturalPractice}
+ * @author Giuseppe Costantini
+ * @author Davide Vitaletti
+ * @version 1.0
+ */
 public class Proponent extends Institution {
-
+	//Attributi
 	private String site;
 	private Town town;
 
+	//Metodi
+	/**
+	 * crea un nuovo soggetto proponente
+	 * @param name nome del soggetto proponente
+	 * @param site sito del soggetto proponente
+	 * @param town citta' del soggetto proponente
+	 */
 	public Proponent(String name, String site, Town town) {
 		super(name);
 		this.site = site;

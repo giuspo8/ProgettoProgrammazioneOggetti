@@ -1,17 +1,32 @@
 package datasetCulturalPractice;
 
+/**
+ * Città di un {@link Proponent}
+ * @author Giuseppe Costantini
+ * @author Davide Vitaletti
+ * @version 1.0
+ */
 public class Town {
 
-
+	//Attributi
 	private String name;
 	private String province;
 
-
+	//Metodi
+	/**
+	 * Crea una nuova citta'
+	 * @param name nome della citta'
+	 */
 	public Town(String name) {
 		super();
 		this.name = name;
 	}
 
+	/**
+	 * Crea una nuova citta'
+	 * @param name nome della citta'
+	 * @param province provincia della citta'
+	 */
 	public Town(String name, String province) {
 		this.name = name;
 		this.province = province;

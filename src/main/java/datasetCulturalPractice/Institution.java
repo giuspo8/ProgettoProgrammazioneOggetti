@@ -1,9 +1,19 @@
 package datasetCulturalPractice;
 
+/**
+ * Classe Astratta che rappresenta tutti gli enti presenti nel dataset
+ * @author Giuseppe Costantini
+ * @author Davide Vitaletti
+ * @version 1.0
+ */
 public abstract class Institution {
-
+	//Attributi
 	protected String name;
-
+	//Metodi
+	/**
+	 * crea un oggetto di tipo Institution
+	 * @param name nome dell'ente
+	 */
 	public Institution(String name) {
 		super();
 		this.name = name;
