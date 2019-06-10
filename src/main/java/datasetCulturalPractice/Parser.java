@@ -48,7 +48,7 @@ public class Parser {
 		}
 		catch (FileNotFoundException e)
 		{
-			System.out.print("File non trovato!!");
+			System.out.println("File non trovato!!");
 			e.printStackTrace();
 		}
 		return file;
@@ -81,7 +81,6 @@ public class Parser {
 							String[] b = a[FIELDNUMBERS-1].split(regex);
 							for (int i=0; i<b.length; i++)
 							{
-								//partners.add(new Partner(b[i]));
 								partnersThisPractice.add(new Partner(b[i]));
 							}
 							practices.add(new CulturalPractice(a[0],Integer.parseInt(a[1]),partnersThisPractice,new Proponent(a[2],a[3],new Town(a[5],a[4]))));
@@ -108,135 +107,5 @@ public class Parser {
 		}
 		DatasetCulturalPractice.setErrors(errors);
 		return practices;
-		//Filter partnersTotal=new DatasetPartners(partners);
-		//Filter proponentsTotal=new DatasetProponents(proponents);
-		//Filter townsTotal=new DatasetTown(towns);
 	}
-
-	public ArrayList<Town> parseTowns(Scanner file){
-
-		ArrayList<Town> towns = new ArrayList<Town>();
-		int count=0;
-		while (file.hasNext())
-		{
-			try {
-				count++;
-				if (count !=1) {
-					String[] a = file.nextLine().split(DELIMITER,FIELDNUMBERS);
-					if (a.length < FIELDNUMBERS)
-					{
-						//System.out.println("C'� un errore alla riga "+ count);
-					}
-					else
-					{
-						Town t=new Town(a[5],a[4]);
-						towns.add(t);
-					}
-				}
-				else
-				{
-					if (file.hasNextLine()) 
-					{
-						file.nextLine();
-					}
-				}
-			}
-			catch (NumberFormatException e)
-			{
-				if (file.hasNextLine()) {
-					file.nextLine();
-				}
-				//System.out.println("C'� un errore di conversione da stringa a numero alla riga "+ count);
-			}
-
-		}
-
-		return towns;
-	}
-
-	public ArrayList<Institution> parsePartners(Scanner file){
-
-		ArrayList<Institution> partners = new ArrayList<Institution>();
-		int count=0;
-		while (file.hasNext())
-		{
-			try {
-				count++;
-				if (count !=1) {
-					String[] a = file.nextLine().split(DELIMITER,FIELDNUMBERS);
-					if (a.length < FIELDNUMBERS)
-					{
-						//System.out.println("C'� un errore alla riga "+ count);
-					}
-					else
-					{
-						String[] b = a[FIELDNUMBERS-1].split(regex);
-						for (int i=0; i<b.length; i++)
-						{
-							Institution p=new Partner(b[i]);
-							partners.add(p);
-						}
-					}
-				}
-				else
-				{
-					if (file.hasNextLine()) 
-					{
-						file.nextLine();
-					}
-				}
-			}
-			catch (NumberFormatException e)
-			{
-				if (file.hasNextLine()) {
-					file.nextLine();
-				}
-				//System.out.println("C'� un errore di conversione da stringa a numero alla riga "+ count);
-			}
-		}
-
-		return partners;
-	}
-
-	public ArrayList<Proponent> parseProponents(Scanner file){
-
-		ArrayList<Proponent> proponents = new ArrayList<Proponent>();
-		int count=0;
-		while (file.hasNext())
-		{
-			try {
-				count++;
-				if (count !=1) {
-					String[] a = file.nextLine().split(DELIMITER,FIELDNUMBERS);
-					if (a.length < FIELDNUMBERS)
-					{
-						//System.out.println("C'� un errore alla riga "+ count);
-					}
-					else
-					{
-
-						Proponent p=new Proponent(a[2],a[3],new Town(a[5],a[4]));
-						proponents.add(p);
-					}
-				}
-				else
-				{
-					if (file.hasNextLine()) 
-					{
-						file.nextLine();
-					}
-				}
-			}
-			catch (NumberFormatException e)
-			{
-				if (file.hasNextLine()) {
-					file.nextLine();
-				}
-				//System.out.println("C'� un errore di conversione da stringa a numero alla riga "+ count);
-			}
-
-		}
-		return proponents;
-	}
-
 }

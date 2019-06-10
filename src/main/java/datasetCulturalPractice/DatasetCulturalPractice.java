@@ -1,6 +1,7 @@
 package datasetCulturalPractice;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -201,7 +202,7 @@ public class DatasetCulturalPractice implements Filter<String,String[]> {
 		return partners;
 	}
 
-	public Set<Town> getTowns(Set<Town> towns)
+	public Object getTowns(Set<Town> towns)
 	{
 
 		for (CulturalPractice c:practices) 
@@ -211,7 +212,7 @@ public class DatasetCulturalPractice implements Filter<String,String[]> {
 		return towns;
 	}
 
-	public Set<Institution> getProponents(Set<Institution> proponents)
+	public Object getProponents(Set<Institution> proponents)
 	{
 		for (CulturalPractice c:practices) 
 		{
@@ -225,41 +226,44 @@ public class DatasetCulturalPractice implements Filter<String,String[]> {
 	@Override
 	public Object logicalFilter(String[] attribute, String operator, String[] value) throws WrongAttributeException {
 
-		List<CulturalPractice> listIn=new ArrayList<CulturalPractice>();
-		List<CulturalPractice> listIn2=new ArrayList<CulturalPractice>();
-		List<CulturalPractice> listNotIn=new ArrayList<CulturalPractice>();
-		List<CulturalPractice> listAnd=new ArrayList<CulturalPractice>();
-		listNotIn.addAll(practices);
+		Set<CulturalPractice> setIn=new HashSet<CulturalPractice>();
+		Set<CulturalPractice> setIn2=new HashSet<CulturalPractice>();
+		Set<CulturalPractice> setNotIn=new HashSet<CulturalPractice>();
+		Set<CulturalPractice> setAnd=new HashSet<CulturalPractice>();
+		setNotIn.addAll(practices);
 		
 		for (CulturalPractice c:practices) {
 			if (attribute.length>1) {
-				if (c.getter(attribute[1],value[1]).contains(value[1]))
-					listIn2.add(c);
-				if (c.getter(attribute[0],value[0]).contains(value[0]))
-					listIn.add(c);
+				if (operator.equals("or")||operator.equals("and")) {
+					if (c.getter(attribute[1],value[1]).contains(value[1]))
+						setIn2.add(c);
+					if (c.getter(attribute[0],value[0]).contains(value[0]))
+						setIn.add(c);
+				}
+				else return "non è possibile specificare più di un attributo con l'operatore scelto";
 			}
 			else {
 				for (int i=0;i<value.length;i++) {
 					if (c.getter(attribute[0],value[i]).contains(value[i]))
-						listIn.add(c);
+						setIn.add(c);
 					}
 			}
 		}
 		if (operator.equals("in")||operator.equals("or")) {
-			listIn.addAll(listIn2);
-			return listIn;
+			setIn.addAll(setIn2);
+			return setIn;
 		}
 		else if (operator.equals("nin")||(operator.equals("not")&&value.length==1)) {
-			listNotIn.removeAll(listIn);
-			return listNotIn;
+			setNotIn.removeAll(setIn);
+			return setNotIn;
 		}
 		else if (operator.equals("and")) {
-			for (CulturalPractice c : listIn) {
-	            if(listIn2.contains(c)) {
-	                listAnd.add(c);
+			for (CulturalPractice c : setIn) {
+	            if(setIn2.contains(c)) {
+	            	setAnd.add(c);
 	            }
 	        }
-			return listAnd;
+			return setAnd;
 		};
 		return "operatore non valido";	
 	}

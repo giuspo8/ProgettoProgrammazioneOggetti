@@ -15,33 +15,8 @@ public class Application {
 		d.getFile();
 		Parser p= new Parser(filename,new Scanner(filename));
 		p.openStream();
-		ArrayList<CulturalPractice> practices;
-		
-		practices = p.parseCulturalPractice(p.getFile());
-		p.openStream();
-		DatasetCulturalPractice.setPractices(practices);
+		DatasetCulturalPractice.setPractices(p.parseCulturalPractice(p.getFile()));
 		DatasetCulturalPractice.setMetadata(new ArrayList<Metadata>());
-
-		for (CulturalPractice c:DatasetCulturalPractice.getPractices()) 
-		{
-			System.out.println(c);
-		}
-
-		/*for (Institution pr:DatasetPartners.getPartners()) 
-		{
-			System.out.println(pr);
-		}
-
-		for (Institution prop:DatasetProponents.getProponents()) 
-		{
-			System.out.println(prop);
-		}
-
-		for (Town t:DatasetTown.getTowns()) 
-		{
-			System.out.println(t);
-		}*/
-
 	}
 
 }

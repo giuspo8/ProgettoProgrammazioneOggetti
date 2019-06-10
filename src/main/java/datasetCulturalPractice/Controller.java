@@ -2,6 +2,7 @@ package datasetCulturalPractice;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,13 +14,23 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controller {
 
 	@ExceptionHandler (NumberFormatException.class)
-	public Object conflict(){
+	public Object conflictNotANumber(){
 		return "i dati inseriti non sono nel formato corretto!";
 	}
 	
 	@ExceptionHandler (WrongAttributeException.class)
-	public Object conflict2(){
+	public Object conflictWrongAttribute(){
 		return "attributo non corretto!";
+	}
+	
+	@ExceptionHandler (ArrayIndexOutOfBoundsException.class)
+	public Object conflictOutOfBounds() {
+		return "il numero di attributi inseriti non è coerente con il numero dei valori";
+	}
+	
+	@ExceptionHandler(MissingServletRequestParameterException.class)
+	public Object conflictMissingParameters() {
+		return "Bad request. ci sono dei parametri che non sono stati inseriti";
 	}
 	
 	@RequestMapping("/data")

@@ -65,6 +65,4 @@ public class Town {
 			return false;
 		return true;
 	}
-
-
 }

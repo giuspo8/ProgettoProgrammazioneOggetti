@@ -4,7 +4,7 @@ public class Proponent extends Institution {
 
 	private String site;
 	private Town town;
-	
+
 	public Proponent(String name, String site, Town town) {
 		super(name);
 		this.site = site;
@@ -29,21 +29,19 @@ public class Proponent extends Institution {
 
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
 		return super.name;
 	}
 
 	@Override
 	public void setName(String name) {
-		// TODO Auto-generated method stub
-
+		super.name=name;
 	}
 
 	@Override
 	public String toString() {
 		return "Proponent [site=" + site + ", town=" + town + ", name=" + name + "]";
 	}
-	
-	
+
+
 
 }

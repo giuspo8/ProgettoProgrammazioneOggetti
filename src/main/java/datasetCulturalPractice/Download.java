@@ -39,7 +39,6 @@ public class Download {
 
 				while ( ( line = buf.readLine() ) != null ) {
 					data+= line;
-					System.out.println( line );
 				}
 			} 
 			catch(Exception e) 
@@ -59,13 +58,13 @@ public class Download {
 					JSONObject o1 = (JSONObject)o; 
 					String format = (String)o1.get("format");
 					String urlD = (String)o1.get("url");
-					System.out.println(format + " | " + urlD);
+					//System.out.println(format + " | " + urlD);
 					if(format.equals("csv")) {
 						download(urlD, Application.filename);
 					}
 				}
 			}
-			System.out.println( "OK" );
+			//System.out.println( "OK" );
 		} catch (IOException | ParseException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
