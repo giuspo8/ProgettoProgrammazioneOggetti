@@ -38,7 +38,7 @@ Infine, l'utente può effetturare 2 richieste con i filtri e sono le seguenti:
 
 ![](images/A_CountUnique.jpg)
 
-![](images/A_MostFrequently.png)
+![](images/A_MostFrequently.jpg)
 
 ![](images/A_ConditionalFilter.png)
 
