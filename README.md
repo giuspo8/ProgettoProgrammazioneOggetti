@@ -24,6 +24,6 @@ Infine, l'utente può effetturare 2 richieste con i filtri e sono le seguenti:
 
 ## Diagramma delle classi
 
-![alt text](file:///C:/Users/david/git/ProgettoProgrammazioneOggetti/NewClassDIagram.png)
+![](NewClassDIagram.png)
 
 ## Diagramma delle sequenze
