@@ -42,4 +42,4 @@ Infine, l'utente può effetturare 2 richieste con i filtri e sono le seguenti:
 
 ![](images/A_ConditionalFilter.png)
 
-![](images/A_LogicalFilter.png)
+![](images/A_LogicalFIlter.png)
