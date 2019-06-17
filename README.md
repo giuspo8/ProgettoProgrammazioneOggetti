@@ -15,7 +15,12 @@ Terminata questa fase, l'utente può effettuare delle richieste sul dataset util
 tramite API di tipo REST. innanzitutto, l'utente può visualizzare tutti i dati attraverso la richiesta "/data". Invece, scrivendo
 "/metadata", verranno visualizzati i metadati relativi agli attributi del dataset. Di seguito, attraverso la richiesta "/countUnique" e
 specificando un attributo, è possibile visualizzare per ogni elemento di quell'attributo quante volte è ripetuto all'interno del dataset.
+Scrivendo "/mostFrequently e specificando un attributo, invece, verrà visuallizato l'elemento, dell'attributo specificato, più volte presente nel dataset. Di seguito, con la funzione "/data/errors", verranno visualizzati tutti gli errori di formattazione presenti. Con
+"/count", invece, verrà restituito il numero di righe valide. Con la richiesta "partners", l'utente può visualizzare la lista di tutti i partner presenti nel database, senza ripetizionioni fra di essi. Lo stesso per le città e per gli enti proponenti scrivendo, rispettivamente, "/towns" o "proponents". 
 
+Infine, l'utente può effetturare 2 richieste con i filtri e sono le seguenti:
+1) "/conditionalFilter": tramite questa scrittura, l'utente può effettuare un filtro sull'attributo numero. In particolare, ha la possibilità di inserire un'operatore ">= ; > ; < ; <= ; =><= " e uno o più numeri (solo nel caso di "=><=" che indica la condizione "compreso"). Verrà restituita una lista di pratiche culturali filtrata sull'attributo numero. 
+2) "logical/Filter": tramite questa funzione, l'utente può specificare uno o più attributi, operatori e valori. Gli operatori possono essere "or ; and ; in ; nin", mentre i valori sono scelti dall'utente. Al termine della scrittura, verrà restituita una lista di pratiche culturali filtrate. Come esempio, l'utente può cercare le pratiche culturali in cui l'ente proponente contiene almeno una lettera "c" nel nome e che sia nella provicia di RM. 
 
 ## Diagramma delle classi
 
