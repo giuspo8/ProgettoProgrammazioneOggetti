@@ -32,6 +32,8 @@ Infine, l'utente può effetturare 2 richieste con i filtri e sono le seguenti:
 
 ## Diagramma delle sequenze
 
+Per quanto riguarda il diagramma delle sequenze, abbiamo deciso di dividere in diagramma in più schemi, ognuno rappresentante una funzione dell'applicazione implementata. In particolare i diagrammi rappresentano rispettivamente: l'avvio dell'applicazione, le richieste di get di base, la richiesta CountUnique, la richiesta MostFrequently, la richiesta ConditionalFilter, la richiesta LogicalFilter.
+
 ![](images/A_Sequence.jpg)
 
 ![](images/A_BasicRequest.jpg)
