@@ -22,8 +22,24 @@ Infine, l'utente può effetturare 2 richieste con i filtri e sono le seguenti:
 1) "/conditionalFilter": tramite questa scrittura, l'utente può effettuare un filtro sull'attributo numero. In particolare, ha la possibilità di inserire un'operatore ">= ; > ; < ; <= ; =><= " e uno o più numeri (solo nel caso di "=><=" che indica la condizione "compreso"). Verrà restituita una lista di pratiche culturali filtrata sull'attributo numero. 
 2) "logical/Filter": tramite questa funzione, l'utente può specificare uno o più attributi, operatori e valori. Gli operatori possono essere "or ; and ; in ; nin", mentre i valori sono scelti dall'utente. Al termine della scrittura, verrà restituita una lista di pratiche culturali filtrate. Come esempio, l'utente può cercare le pratiche culturali in cui l'ente proponente contiene almeno una lettera "c" nel nome e che sia nella provicia di RM. 
 
+## Diagramma dei casi d'uso
+
+![](images/UseCase.png)
+
 ## Diagramma delle classi
 
-![](NewClassDIagram.png)
+![](images/NewClassDIagram.png)
 
 ## Diagramma delle sequenze
+
+![](images/A_Sequence.jpg)
+
+![](images/A_BasicRequest.jpg)
+
+![](images/CountUnique.jpg)
+
+![](images/MostFrequently.png)
+
+![](images/ConditionalFilter.png)
+
+![](images/LogicalFilter.png)
